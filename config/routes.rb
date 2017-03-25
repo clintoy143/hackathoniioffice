@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
     as :user do
       get 'login', to: 'devise/sessions#new'
     end    
@@ -10,5 +11,9 @@ Rails.application.routes.draw do
 
     devise_for :users
 
+=======
+  devise_for :users
+  root 'top#index' 
+>>>>>>> 0dad9ecc3cd59bcecb63f04986eb1366ab2448f7
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
