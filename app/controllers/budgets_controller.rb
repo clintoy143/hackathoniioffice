@@ -11,14 +11,14 @@ class BudgetsController < ApplicationController
     end
     
     def show_budget
-        
+        @budget = Budget.find(params[:format])
     end
     
     def calculate
          
         @budget = Budget.create(budget_params)
         if @budget.save 
-            redirect_to show_budget_path
+            redirect_to show_budget_path(@budget.id)
         else
             render "user_page"
         end

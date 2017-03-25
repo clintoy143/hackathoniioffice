@@ -17,7 +17,8 @@
 <%= form_for @budget, url: user_path do |b|%>
     <%= b.number_field :initial_cost, :id=>"init_cost"%>
     <%= b.hidden_field :food, :id=>"food" %>
-    <%= b.hidden_field :play, :id=>"play" %> 
+    <%= b.hidden_field :play, :id=>"play" %>
+    <%= b.hidden_field :daily, :id=>"daily" %>
     <%= b.hidden_field :souvenir, :id=>"souvenir" %> 
     <%= b.hidden_field :span%>
     <%= b.select(:hotel) do %>
