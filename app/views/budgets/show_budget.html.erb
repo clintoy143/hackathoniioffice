@@ -1,17 +1,142 @@
+<div class="container">
+<h2 class="tf-h2 budget-h2">YOUR TRAVEL PLAN</h2>
 
-Initial Cost: <%= @budget.initial_cost%><br />
-Daily: <%= @budget.daily %><br />
-Hotel: <%= @budget.hotel%><br />
-Food: <%= @budget.food%><br />
-Play: <%= @budget.play %><br />
-Souvenir: <%= @budget.souvenir %><br />
+<div class="budget-result-box">
+  <p class="budget-result-title">You can use...<span class="budget-result-daily">3000<%= @budget.daily %></span>PHP / 1day</p>
+  <div class="budget-chart-box">
+    <div class="row">
+      <div class="col-sm-3">
+        <p class="budget-result-category">Hotel</p>
+        <p class="budget-result-num"><%= @budget.hotel%>1000 <span class="small">PHP</span></p>
+      </div>
+      <div class="col-sm-3">
+        <p class="budget-result-category">Food</p>
+        <p class="budget-result-num">600 <%= @budget.food%><span class="small">PHP</span></p>
+      </div>
+      <div class="col-sm-3">
+        <p class="budget-result-category">Play</p>
+        <p class="budget-result-num">1200 <%= @budget.play %><span class="small">PHP</span></p>
+      </div>
+      <div class="col-sm-3">
+        <p class="budget-result-category">Shopping</p>
+        <p class="budget-result-num">1200 <%= @budget.souvenir %><span class="small">PHP</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="budget-info-box">
+  <div class="row">
+    <div class="col-sm-3 budget-info-col">
+      <span class="strong">Initial Cost</span>
+      <span class="">9,000 PHP</span>
+    </div>
+    <div class="col-sm-3 budget-info-col">
+      <span class="strong">Place</span>
+      <span class="">Cebu</span>
+    </div>
+    <div class="col-sm-3 budget-info-col">
+      <span class="strong">Begin date</span>
+      <span class="">03/22/2017</span>
+    </div>
+    <div class="col-sm-3 budget-info-col">
+      <span class="strong">End date</span>
+      <span class="">03/25/2017</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.js-slick').slick();
+  });
+</script>
+
+<div class="row budget-suggest-box">
+  <div class="col-sm-6">
+    <ul class="budget-suggest budget-suggest-hotel js-slick">
+      <li style="background: url(<%= asset_path "hotel1.jpg" %>); center center / cover">
+        <div class="budget-suggest-title">Hotel</div>
+        <div class="budget-suggest-content">
+          <p class="budget-suggest-name">AAA Hotel</p>
+          <p class="budget-suggest-plice">1000 PHP</p>
+        </div>
+      </li>
+      <li style="background: url(<%= asset_path "hotel2.jpg" %>); center center / cover">
+        <div class="budget-suggest-title">Hotel</div>
+        <div class="budget-suggest-content">
+          <p class="budget-suggest-name">BBB Hotel</p>
+          <p class="budget-suggest-plice">1000 PHP</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <ul class="budget-suggest budget-suggest-hotel">
+      <li style="background: url(<%= asset_path "food.jpg" %>); center center / cover">
+        <p class="budget-suggest-title">Food</p>
+        <div class="budget-suggest-content">
+          <p class="budget-suggest-name">Dinner 'Lantaw restaurant' and lunch 'Jolibee'</p>
+          <p class="budget-suggest-plice">600 PHP</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <ul class="budget-suggest budget-suggest-hotel">
+      <li style="background: url(<%= asset_path "Playing.jpg" %>); center center / cover">
+        <p class="budget-suggest-title">Playing</p>
+        <div class="budget-suggest-content">
+          <p class="budget-suggest-name">TOPS</p>
+          <p class="budget-suggest-plice">1200 PHP</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <ul class="budget-suggest budget-suggest-hotel">
+      <li style="background: url(<%= asset_path "Shopping.jpg" %>); center center / cover">
+        <p class="budget-suggest-title">Shopping</p>
+        <div class="budget-suggest-content">
+          <p class="budget-suggest-name">AAA HOTEL</p>
+          <p class="budget-suggest-plice">1200 PHP</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="budget-recul-box">
+  <h2 class="budget-recul-title">You can change the rate of your budget</h2>
+  <div class="row">
+    <div class="col-sm-3">
+      <p class="budget-recul-category">HOTEL</p>
+      <input type="text" class="budget-recul-rate">PHP
+    </div>
+    <div class="col-sm-3">
+      <p class="budget-recul-category">FOOD</p>
+      <input type="text" class="budget-recul-rate">%
+    </div>
+    <div class="col-sm-3">
+      <p class="budget-recul-category">PLAYING</p>
+      <input type="text" class="budget-recul-rate">%
+    </div>
+    <div class="col-sm-3">
+      <p class="budget-recul-category">SHOPPING</p>
+      <input type="text" class="budget-recul-rate">%
+    </div>
+  </div>
+  <div class="budget-btn-box">
+    <input class="btn btn-primary btn-lg" type="submit" value="make a plan, again !" >
+  </div>
+
+</div>
 
 
 
 
 
-
-<!-- 
+<!--
 
 
     t.float    "initial_cost"
