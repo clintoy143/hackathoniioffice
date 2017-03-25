@@ -1,37 +1,36 @@
 class BudgetsController < ApplicationController
-      
-    
-    def home
+  before_filter :authenticate_user!
+
+  def home
+  end
+
+  def user_page
+    @hotel = Hotel.all
+    @budget = Budget.new
+
+  end
+
+  def show_budget
+    @budget = Budget.find(params[:format])
+  end
+
+  def calculate
+    @budget = Budget.create(budget_params)
+    if @budget.save 
+      redirect_to show_budget_path(@budget.id)
+    else
+      render "user_page"
     end
-    
-    def user_page
-        @hotel = Hotel.all
-        @budget = Budget.new
-        
-    end
-    
-    def show_budget
-        @budget = Budget.find(params[:format])
-    end
-    
-    def calculate
-         
-        @budget = Budget.create(budget_params)
-        if @budget.save 
-            redirect_to show_budget_path(@budget.id)
-        else
-            render "user_page"
-        end
-    end
-    
-    private
-        def budget_params
-            params.require(:budget).permit(:initial_cost, :hotel, :span, :food, :daily, :play, :souvenir)
-        end
-        
-        def update_budget
-            params.require(:budget).permit(:initial_cost, :hotel, :span, :food, :daily, :play, :souvenir)
-        end
+  end
+
+  private
+  def budget_params
+    params.require(:budget).permit(:initial_cost, :hotel, :span, :food, :daily, :play, :souvenir)
+  end
+
+  def update_budget
+    params.require(:budget).permit(:initial_cost, :hotel, :span, :food, :daily, :play, :souvenir)
+  end
 end
 
 #delete
