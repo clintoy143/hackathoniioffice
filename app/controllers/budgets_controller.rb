@@ -26,7 +26,7 @@ class BudgetsController < ApplicationController
     
     private
         def budget_params
-            params.require(:budget).permit(:initial_cost, :hotel, :span, :user_id)
+            params.require(:budget).permit(:initial_cost, :hotel, :span, :food, :daily, :play, :souvenir)
         end
         
         def update_budget
