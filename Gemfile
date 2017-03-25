@@ -44,14 +44,11 @@ group :development, :test do
   gem 'byebug', platform: :mri
 # Use sqlite3 as the database for Active Record
   gem 'sqlite3'  
-<<<<<<< HEAD
   gem 'pry-byebug'
-=======
   gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
   gem 'pry-doc'    # methodを表示
   gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
   gem 'pry-stack_explorer' # スタックをたどれる
->>>>>>> 807599f4a8066cf593c5edd481682beaa515be15
 end
 
 group :development do
