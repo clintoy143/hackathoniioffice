@@ -1,0 +1,51 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+       var sum = $("#init_cost").val();
+       var food, souvenir, play, hotel, daily;
+       hotel = 1000;
+       daily = Math.floor((parseInt(sum) - hotel) / 3);
+       food = Math.floor(daily * 0.1);
+       play = Math.floor(daily * 0.4);
+       souvenir = Math.floor(daily * 0.5);           
+        $("#food").val(food);
+        $("#play").val(play);
+        $("#souvenir").val(souvenir);
+        $("#daily").val(daily);
+    });
+</script> 
+
+<%= form_for @budget, url: user_path do |b|%>
+    <%= b.number_field :initial_cost, :id=>"init_cost"%>
+    <%= b.hidden_field :food, :id=>"food" %>
+    <%= b.hidden_field :play, :id=>"play" %> 
+    <%= b.hidden_field :souvenir, :id=>"souvenir" %> 
+    <%= b.hidden_field :span%>
+    <%= b.select(:hotel) do %>
+        <%= options_from_collection_for_select(@hotel, :fee, :place) %>
+    <% end %>
+    
+    <%= b.submit "Calculate Budget" %>
+<% end %>
+
+
+<!-- 
+
+
+    t.float    "initial_cost"
+    t.float    "food"
+    t.float    "hotel"
+    t.float    "play"
+    t.float    "souvenir"
+    t.float    "begin_date"
+    t.float    "end_date"
+    t.float    "span"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.float    "daily"
+
+
+
+
+-->
+
+

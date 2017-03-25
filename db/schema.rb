@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325031829) do
+ActiveRecord::Schema.define(version: 20170325070129) do
+
+  create_table "budgets", force: :cascade do |t|
+    t.float    "initial_cost"
+    t.float    "food"
+    t.float    "hotel"
+    t.float    "play"
+    t.float    "souvenir"
+    t.float    "span"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.float    "daily"
+    t.string   "begin_date"
+    t.string   "end_date"
+  end
+
+  create_table "hotels", force: :cascade do |t|
+    t.string   "name"
+    t.string   "place"
+    t.float    "fee"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
