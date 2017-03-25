@@ -1,5 +1,5 @@
 class BudgetsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!, if: :devise_controller? 
 
   def home
   end
