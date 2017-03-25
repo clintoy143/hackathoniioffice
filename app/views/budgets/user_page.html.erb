@@ -14,19 +14,61 @@
     });
 </script> 
 
-<%= form_for @budget, url: user_path do |b|%>
-    <%= b.number_field :initial_cost, :id=>"init_cost"%>
-    <%= b.hidden_field :food, :id=>"food" %>
-    <%= b.hidden_field :play, :id=>"play" %>
-    <%= b.hidden_field :daily, :id=>"daily" %>
-    <%= b.hidden_field :souvenir, :id=>"souvenir" %> 
-    <%= b.hidden_field :span%>
-    <%= b.select(:hotel) do %>
+<%= form_for @budget, url: user_path, html: { class: 'form-horizontal' } do |b|%>
+  <h3 class="text-center">TEACH ME</h2>
+  <h3 class="text-center">YOUR TRAVEL RESOURCE</h2>
+
+  <h4 class="text-center"><%= current_user.name %></h4>
+
+  <div class="form-group">
+    <label for="init_cost" class="col-sm-5 control-label">Initial Cost</label>
+    <div class="col-sm-2">
+      <div class="input-group">
+        <%= b.number_field :initial_cost, :id=>"init_cost", class: 'form-control', placeholder: 'initial const'%>
+        <div class="input-group-addon">PHP</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="hotel" class="col-sm-5 control-label">Hotel</label>
+    <div class="col-sm-2">
+      <%= b.select(:hotel, nil, {}, { class: 'form-control' }) do %>
         <%= options_from_collection_for_select(@hotel, :fee, :place) %>
-    <% end %>
-    
-    <%= b.submit "Calculate Budget" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="begin_date" class="col-sm-5 control-label">Begin Date</label>
+    <div class="col-sm-2">
+      <%= b.text_field :begin_date, :id=>"begin_date", class: 'form-control datepicker', placeholder: 'initial const'%>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="end_date" class="col-sm-5 control-label">End Date</label>
+    <div class="col-sm-2">
+      <%= b.text_field :end_date, :id=>"end_date", class: 'form-control datepicker', placeholder: 'initial const'%>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4"></div>
+    <%= b.submit "Calculate Budget", { class: 'btn btn-primary col-sm-3'} %>
+    <div class="col-sm-5"></div>
+  </div>
+
+  <%= b.hidden_field :food, :id=>"food" %>
+  <%= b.hidden_field :play, :id=>"play" %>
+  <%= b.hidden_field :daily, :id=>"daily" %>
+  <%= b.hidden_field :souvenir, :id=>"souvenir" %> 
+  <%= b.hidden_field :span%>
 <% end %>
+    
+<script>
+$( function() {
+  $( "#begin_date" ).datepicker();
+  $( "#end_date" ).datepicker();
+} );
+</script>
+
 
 
 <!-- 
