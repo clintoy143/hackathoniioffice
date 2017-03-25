@@ -42,6 +42,11 @@ GEM
     autoprefixer-rails (6.7.7.1)
       execjs
     bcrypt (3.1.11)
+<<<<<<< HEAD
+=======
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
+>>>>>>> 807599f4a8066cf593c5edd481682beaa515be15
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -102,6 +107,17 @@ GEM
     pry-byebug (3.4.2)
       byebug (~> 9.0)
       pry (~> 0.10)
+<<<<<<< HEAD
+=======
+    pry-doc (0.10.0)
+      pry (~> 0.9)
+      yard (~> 0.9)
+    pry-rails (0.3.5)
+      pry (>= 0.9.10)
+    pry-stack_explorer (0.4.9.2)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
+>>>>>>> 807599f4a8066cf593c5edd481682beaa515be15
     puma (3.8.2)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -195,6 +211,12 @@ DEPENDENCIES
   listen (~> 3.0.5)
   pg
   pry-byebug
+<<<<<<< HEAD
+=======
+  pry-doc
+  pry-rails
+  pry-stack_explorer
+>>>>>>> 807599f4a8066cf593c5edd481682beaa515be15
   puma (~> 3.0)
   rails (~> 5.0.2)
   rails_12factor
